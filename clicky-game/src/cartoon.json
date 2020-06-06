@@ -1,0 +1,32 @@
+[
+    {
+        "id" : 1,
+        "name":"Marsha",
+        "image":"https://i.pinimg.com/236x/83/af/1a/83af1ac1f2f74d11265fc276f58bbc42.jpg"
+    },
+    {
+        "id": 2,
+        "name" : "Oso",
+        "image" :"https://blog.argos.cl/wp-content/uploads/2017/02/Personajes-de-Masha-y-el-oso-2-320x427.png"
+    },
+    {
+        "id" : 3,
+        "name" : "Dora exploradora",
+        "image" : "https://www.dibujoswiki.com/Uploads/dibujoswiki.com/ImagenesGrandes/dora-exploradora-9.jpg"
+    },
+    {
+        "id" : 4,
+        "name" : "Bob Sponja",
+        "image" : "https://e00-elmundo.uecdn.es/television/programacion-tv/img/v2/programas/24/618532.png"
+    },
+    {
+        "id" : 5,
+        "name" :"Jerry",
+        "image":"https://upload.wikimedia.org/wikipedia/en/2/2f/Jerry_Mouse.png"
+    },
+    {
+        "id": 6,
+        "name":"Tom",
+        "image":"https://p7.hiclipart.com/preview/663/499/613/jerry-mouse-tom-cat-sticker-tom-and-jerry-decal-tom-and-jerry.jpg"
+    }
+]
