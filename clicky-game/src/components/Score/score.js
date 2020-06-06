@@ -5,7 +5,7 @@ import "./scores.css"
 function Score (props){
     return(
         <div className="score">
-            <h2> score: {props.score}    |    topscore: {props.topscore} </h2>
+            <h2>   message : {props.message} score: {props.score}    |    topscore: {props.topscore} </h2>
         </div>
     )
 }
