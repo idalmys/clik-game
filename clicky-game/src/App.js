@@ -13,7 +13,8 @@ class App extends Component {
     score :0,
     topscore :0,
     cartoon,
-    message: "Click an image to begin"
+    alert: "Click an image to begin",
+    clicked:[]
      
   }
 
@@ -25,27 +26,53 @@ class App extends Component {
     return this.state.cartoon;
   }
 
+  handleClickEvent = (id) => {
 
+    var clicked = this.state.clicked;
+    if (clicked.indexOf(id) === -1) {
+      this.setState({
+        clicked: clicked.concat(id),
+        score: this.state.score + 1,
+        topscore: this.state.score + 1 > this.state.topscore ? this.state.score + 1 : this.state.topscore,
+        alert: "You guessed correctly!!!!" 
+      })
+     this.RandomImages()
+     
+    }
+    else {
+      this.setState({
+        alert: "You guessed incorrectly!!!!!",
+        score: 0,
+        clicked: []
+      })
+    }
+  }
   render(){
     
     return(
       <Wrapper>
-        <Score message= {this.state.message}  score = {this.state.score} topscore={this.state.topscore}></Score>
-        <Title></Title>
+        <Score alert= {this.state.alert}  score = {this.state.score} topscore={this.state.topscore}></Score>
+        <Title>
+        Click on a character to earn points.
+
+        Don't click on any more than once or the game will reset!
+        </Title>
         <div className="container">
           <div className="row">
             {this.RandomImages(cartoon).map(cartoon =>(
-                <CardCartoon          
+                <CardCartoon  
+                  id={cartoon.id}
                   name={cartoon.name}
                   image ={cartoon.image}
-                  id={cartoon.id}>
+                  handleClickEvent={this.handleClickEvent}>
+
                 </CardCartoon>          
              ))}
           </div>
         </div>
-      
-        
+               
       </Wrapper>
+      
 
     );
   }
