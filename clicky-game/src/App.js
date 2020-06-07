@@ -27,25 +27,41 @@ class App extends Component {
   }
 
   handleClickEvent = (id) => {
+   var clicked= this.state.clicked;
 
-    var clicked = this.state.clicked;
-    if (clicked.indexOf(id) === -1) {
-      this.setState({
+    if((clicked.indexOf(id)===-1) ){
+      if(this.state.score + 1 > this.state.topscore ) {
+        this.setState({
+          topscore :this.state.score + 1
+        })
+      }else{
+        this.setState({
+          topscore :this.state.topscore
+        })
+      }
+       this.setState({
         clicked: clicked.concat(id),
-        score: this.state.score + 1,
-        topscore: this.state.score + 1 > this.state.topscore ? this.state.score + 1 : this.state.topscore,
-        alert: "You guessed correctly!!!!" 
-      })
-     this.RandomImages()
-     
-    }
-    else {
-      this.setState({
-        alert: "You guessed incorrectly!!!!!",
-        score: 0,
-        clicked: []
-      })
-    }
+        score : this.state.score + 1,
+        alert :"You guessed correctly"
+       
+       })
+    
+    }else{
+      if( this.state.topscore === 9){
+          this.setState({
+            alert: "You Win!!!!!",
+            score:0,
+            topscore:0,
+            clicked:[]
+          })
+      }else {
+          this.setState({
+             alert: "You guessed incorrectly!!!!!",
+            score: 0,
+            clicked: []
+          })
+        }
+      } 
   }
   render(){
     
@@ -54,7 +70,6 @@ class App extends Component {
         <Score alert= {this.state.alert}  score = {this.state.score} topscore={this.state.topscore}></Score>
         <Title>
         Click on a character to earn points.
-
         Don't click on any more than once or the game will reset!
         </Title>
         <div className="container">
@@ -65,15 +80,11 @@ class App extends Component {
                   name={cartoon.name}
                   image ={cartoon.image}
                   handleClickEvent={this.handleClickEvent}>
-
                 </CardCartoon>          
              ))}
           </div>
         </div>
-               
       </Wrapper>
-      
-
     );
   }
 }
