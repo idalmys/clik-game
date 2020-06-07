@@ -1,13 +1,16 @@
 import React from "react";
+import "./card.css"
 
 
-function Card (props){
+function CardCartoon (props){
     return(
-        <div className="card">
-            <img alt={props.name} src ={props.image} id={props.id}
-            onClick={ () => props.handleclickevent (props.id)}></img>
-        </div>
+        <div className="col-md-4 mt-4">
+            <div className="card">
+                <img alt={props.name} src ={props.image} id={props.id} 
+                onClick={ () => props.handleclickevent (props.id)}></img>
+            </div>
+        </div>                 
     )
 }
 
-export default Card;
+export default CardCartoon;

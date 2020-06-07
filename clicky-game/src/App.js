@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import logo from './logo.svg';
 import Wrapper from "./components/Wrapper";
 import Score from "./components/Score";
-import Card from "./components/Card";
+import CardCartoon from "./components/Card";
 import Title from "./components/Title";
 import cartoon from "./cartoon.json";
 
@@ -18,7 +17,7 @@ class App extends Component {
      
   }
 
-  shuffleArray = () => {
+  RandomImages = () => {
     for (var i = this.state.cartoon.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
       [this.state.cartoon[i], this.state.cartoon[j]] = [this.state.cartoon[j], this.state.cartoon[i]];
@@ -33,15 +32,19 @@ class App extends Component {
       <Wrapper>
         <Score message= {this.state.message}  score = {this.state.score} topscore={this.state.topscore}></Score>
         <Title></Title>
-        {this.shuffleArray(cartoon).map(cartoon =>(
-          <Card 
-         
-          name={cartoon.name}
-          image ={cartoon.image}
-          id={cartoon.id}>
-          </Card>  
+        <div className="container">
+          <div className="row">
+            {this.RandomImages(cartoon).map(cartoon =>(
+                <CardCartoon          
+                  name={cartoon.name}
+                  image ={cartoon.image}
+                  id={cartoon.id}>
+                </CardCartoon>          
+             ))}
+          </div>
+        </div>
+      
         
-        ))}
       </Wrapper>
 
     );
